@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map<int, int> mpp;
+        for (int num : nums) {
+            // If the key (num) exists in the map, increment its frequency; otherwise, initialize it to 1.
+            mpp[num]++;
+        }
+
+        // Find the number that occurs only once
+        for (auto& entry : mpp) {
+            if (entry.second == 1) {   // value
+                return entry.first; //key
+            }
+        }
+
+        // Return -1 or any suitable default value if no number occurs only once
+        return -1;
+    }
+};
